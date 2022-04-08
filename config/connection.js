@@ -1,9 +1,11 @@
 const { connect, connection } = require('mongoose');
 
-connect('mongodb://localhost/developersApplications', {
+const connectionString =
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/studentDB';
+
+connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 module.exports = connection;
-//connects to mongoose
